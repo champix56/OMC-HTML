@@ -25,10 +25,4 @@
 			</footer>
 		</html>
 	</xsl:template>
-	<xsl:template name="notes">
-		<h3>Notes</h3>
-		<ul list-style="none">
-			<xsl:apply-templates select="//fn"/>
-		</ul>
-	</xsl:template>
 </xsl:stylesheet>

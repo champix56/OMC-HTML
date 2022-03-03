@@ -144,14 +144,14 @@
 	</xsl:template>
 	<!--<xsl:template name="footnotes">-->
 	<xsl:template match="fn">
-			<li id="{@id}" class="note-list">
-				<span class="reference-text">
-					<xsl:value-of select="label"/>
-					<xsl:value-of select="p"/>
-					<a href="#fntext-1" class="small">
-						<i class="icon-back-to-top"/> Back to text</a>
-				</span>
-			</li>
+		<li id="{@id}" class="note-list">
+			<span class="reference-text">
+				<xsl:value-of select="label"/>
+				<xsl:value-of select="p"/>
+				<a href="#fntext-1" class="small">
+					<i class="icon-back-to-top"/> Back to text</a>
+			</span>
+		</li>
 	</xsl:template>
 	<!--</xsl:template>-->
 	<!--	xml
@@ -214,5 +214,11 @@
 			<xsl:call-template name="imgPathCreator"/>
 		</xsl:variable>
 		<img alt="{../label}" src="{$src}"/>
+	</xsl:template>
+	<xsl:template name="notes">
+		<h3>Notes</h3>
+		<ul list-style="none">
+			<xsl:apply-templates select="//fn"/>
+		</ul>
 	</xsl:template>
 </xsl:stylesheet>
