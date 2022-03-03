@@ -212,14 +212,15 @@
 			<xsl:apply-templates select="thead|tbody|tfoot|tr"/>
 		</table>
 	</xsl:template>
-	<xsl:template match="thead|tbody|tfoot|tr|td">
+	<xsl:template match="thead|tbody|tfoot|tr|td|th">
 		<xsl:element name="{name()}">
 			<xsl:for-each select="@*">
 				<xsl:attribute name="{name()}"><xsl:value-of select="."/></xsl:attribute>
 			</xsl:for-each>
-			<xsl:apply-templates select="*"/>
+			<xsl:apply-templates select="text()|*"/>
 		</xsl:element>
 	</xsl:template>
+
 	<xsl:template match="fig">
 		<h3 id="{@id}">
 			<xsl:value-of select="label"/>
@@ -242,4 +243,6 @@
 	<xsl:template match="break">
 		<br/>
 	</xsl:template>
+	<xsl:template match="underline"><u><xsl:value-of select="."/></u></xsl:template>
+	<xsl:template match="bold"><b><xsl:value-of select="."/></b></xsl:template>
 </xsl:stylesheet>

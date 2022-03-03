@@ -25,6 +25,10 @@
 						border-left: none;
 						border-right: none;
 					}
+					.notif-table-wrap td, .notif-table-wrap th
+					{
+						background-color:transparent !important;
+					}
 				</style>
 			</head>
 			<xsl:apply-templates select="/book"/>
