@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="NotificationsTemplate.xslt"?>
+<!--transformation côté client-->
+<book dtd-version="2.0" xml:lang="EN" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<collection-meta collection-type="series">
+		<title-group>
+			<title>Notifications</title>
+			<alt-title alt-title-type="pub-short-title">Notifications</alt-title>
+			<alt-title alt-title-type="pub-acronym-title">NO</alt-title>
+		</title-group>
+	</collection-meta>
+	<book-meta>
+		<book-id book-id-type="publisher-id">21-8702</book-id>
+		<book-id book-id-type="dms-job-id"/>
+		<subj-group subj-group-type="report-type">
+			<subject>Notifications</subject>
+		</subj-group>
+		<book-title-group>
+			<book-title/>
+		</book-title-group>
+		<pub-date date-type="pub">
+			<day>18</day>
+			<month>11</month>
+			<year>2021</year>
+		</pub-date>
+		<publisher>
+			<publisher-name>World Trade Organization</publisher-name>
+			<publisher-loc>Geneva, Switzerland</publisher-loc>
+		</publisher>
+		<counts>
+			<book-count count-type="box" count="0"/>
+			<book-fig-count count="0"/>
+			<book-table-count count="1"/>
+			<book-equation-count count="0"/>
+			<book-ref-count count="0"/>
+			<book-page-count count="2"/>
+		</counts>
+		<custom-meta-group>
+			<custom-meta id="Bodies">
+				<meta-name>Bodies</meta-name>
+				<meta-value>Committee on Technical Barriers to Trade</meta-value>
+			</custom-meta>
+			<custom-meta id="OriginalLanguage1">
+				<meta-name>OriginalLanguage1</meta-name>
+				<meta-value>English</meta-value>
+			</custom-meta>
+		</custom-meta-group>
+		<custom-meta-group>
+			<custom-meta id="symbol1">
+				<meta-name>Symbol</meta-name>
+				<meta-value>G/TBT/N/USA/1803</meta-value>
+			</custom-meta>
+		</custom-meta-group>
+	</book-meta>
+	<front-matter>
+		<front-matter-part>
+			<named-book-part-body>
+				<p>The following notification is being circulated in accordance with Article 10.6</p>
+				<table-wrap id="ta" position="float">
+					<table rules="groups">
+						<col width="7.78%"/>
+						<col width="92.22%"/>
+						<tbody>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: double 0.75pt; border-bottom: solid 0.75pt" scope="row">
+									<bold>1.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: double 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt">
+									<bold>Notifying Member:</bold>
+									<underline>UNITED STATES OF AMERICA</underline>
+									<break/>
+									<bold>If applicable, name of local government involved (Article 3.2 and 7.2):</bold>
+								</td>
+							</tr>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" scope="row">
+									<bold>2.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt">
+									<bold>Agency responsible:</bold> Federal Aviation Administration (FAA) [1832]<break/>
+									<bold>Name and address (including telephone and fax numbers, email and website addresses, if available) of agency or authority designated to handle comments regarding the notification shall be indicated if different from above:</bold>
+									<break/>Please submit comments to: USA WTO TBT Enquiry Point, Email: <email xlink:href="usatbtep@nist.gov">usatbtep@nist.gov</email>
+								</td>
+							</tr>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" scope="row">
+									<bold>3.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt">
+									<bold>Notified under Article 2.9.2 [ ], 2.10.1 [ ], 5.6.2 [ ], 5.7.1 [ ], other [X]:</bold>
+								</td>
+							</tr>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" scope="row">
+									<bold>4.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt">
+									<bold>Products covered (HS or CCCN where applicable, otherwise national tariff heading. ICS numbers may be provided in addition, where applicable):</bold> Bombardier model BD-100-1A10 airplane; electronic system security protection; Aerospace electric equipment and systems (ICS 49.060), On-board equipment and instruments (ICS 49.090)</td>
+							</tr>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" scope="row">
+									<bold>5.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt">
+									<bold>Title, number of pages and language(s) of the notified document:</bold> Special Conditions: Honeywell, Bombardier Model BD-100-1A10 Airplane; Electronic System Security Protection From Unauthorized External Access (2 page(s), in English)</td>
+							</tr>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" scope="row">
+									<bold>6.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt">
+									<bold>Description of content:</bold> Final special conditions; request for comments - These special conditions are issued for the Bombardier Model BD-100-1A10 airplane. This airplane, as modified by Honeywell, will have a novel or unusual design feature when compared to the state of technology envisioned in the airworthiness standards for transport category airplanes. This design feature is the installation of a system that provides wireless data download capability from the engine electronic control unit to Honeywell cloud-based storage. The applicable airworthiness regulations do not contain adequate or appropriate safety standards for this design feature. These special conditions contain the additional safety standards that the Administrator considers necessary to establish a level of safety equivalent to that established by the existing airworthiness standards.</td>
+							</tr>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" scope="row">
+									<bold>7.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt">
+									<bold>Objective and rationale, including the nature of urgent problems where applicable:</bold> Protection of human health or safety</td>
+							</tr>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" scope="row">
+									<bold>8.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt">
+									<bold>Relevant documents:</bold> 86 Federal Register (FR) 59839, 29 October 2021; Title 14 Code of Federal Regulations (CFR) Part 25:<break/>
+									<ext-link ext-link-type="uri" xlink:href="https://www.govinfo.gov/content/pkg/FR-2021-10-29/html/2021-23552.htm">https://www.govinfo.gov/content/pkg/FR-2021-10-29/html/2021-23552.htm</ext-link>
+									<break/>
+									<ext-link ext-link-type="uri" xlink:href="https://www.govinfo.gov/content/pkg/FR-2021-10-29/pdf/2021-23552.pdf">https://www.govinfo.gov/content/pkg/FR-2021-10-29/pdf/2021-23552.pdf</ext-link>
+									<break/>This final special conditions; request for comments is identified by Docket Number FAA-2021-0906. The Docket Folder is available on Regulations.gov at <ext-link ext-link-type="uri" xlink:href="https://www.regulations.gov/docket/FAA-2021-0906/document">https://www.regulations.gov/docket/FAA-2021-0906/document</ext-link> and provides access to primary documents as well as comments received. Documents are also accessible from <ext-link ext-link-type="uri" xlink:href="https://www.regulations.gov/">Regulations.gov</ext-link> by searching the Docket Number. WTO Members and their stakeholders are asked to submit comments to the <email xlink:href="usatbtep@nist.gov">usatbtep@nist.gov</email>. Comments received by the USA TBT Enquiry Point from WTO Members and their stakeholders will be shared with the regulator and will also be submitted to the <ext-link ext-link-type="uri" xlink:href="https://www.regulations.gov/docket/FAA-2021-0906/document">Docket</ext-link> on Regulations.gov if received within the comment period.</td>
+							</tr>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" scope="row">
+									<bold>9.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt">
+									<bold>Proposed date of adoption:</bold> 29 October 2021<break/>
+									<bold>Proposed date of entry into force:</bold> 29 October 2021</td>
+							</tr>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" scope="row">
+									<bold>10.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt">
+									<bold>Final date for comments:</bold> 13 December 2021</td>
+							</tr>
+							<tr>
+								<td valign="top" align="justify" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: double 0.75pt" scope="row">
+									<bold>11.</bold>
+								</td>
+								<td valign="top" align="left" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: double 0.75pt">
+									<bold>Texts available from: National enquiry point [ ] or address, telephone and fax numbers and email and website addresses, if available, of other body:</bold>
+									<break/>
+									<ext-link ext-link-type="uri" xlink:href="https://members.wto.org/crnattachments/2021/TBT/USA/21_7204_00_e.pdf">https://members.wto.org/crnattachments/2021/TBT/USA/21_7204_00_e.pdf</ext-link>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</table-wrap>
+			</named-book-part-body>
+		</front-matter-part>
+	</front-matter>
+</book>

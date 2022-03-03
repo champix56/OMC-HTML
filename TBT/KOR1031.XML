@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="NotificationsTemplate.xslt"?>
+<!--transformation côté client-->
+<book dtd-version="2.0" xml:lang="EN" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+<collection-meta collection-type="series">
+<title-group>
+<title>Notifications</title>
+<alt-title alt-title-type="pub-short-title">Notifications</alt-title>
+<alt-title alt-title-type="pub-acronym-title">NO</alt-title>
+</title-group>
+</collection-meta>
+<book-meta>
+<book-id book-id-type="publisher-id">21-9037</book-id>
+<book-id book-id-type="dms-jsob-id"></book-id>
+<subj-group subj-group-type="report-type"><subject>Notifications</subject></subj-group>
+<book-title-group>
+<book-title>NOTIFICATION</book-title>
+</book-title-group>
+<pub-date date-type="pub"><day>01</day><month>12</month><year>2021</year></pub-date>
+<publisher>
+<publisher-name>World Trade Organization</publisher-name>
+<publisher-loc>Geneva, Switzerland</publisher-loc>
+</publisher>
+<counts>
+<book-count count="0" count-type="box"/>
+<book-fig-count count="0"/>
+<book-table-count count="1"/>
+<book-equation-count count="0"/>
+<book-ref-count count="0"/>
+<book-page-count count="1"/></counts>
+<custom-meta-group>
+<custom-meta id="Divisions"><meta-name>Divisions</meta-name><meta-value>Accessions Division</meta-value></custom-meta>
+<custom-meta id="Bodies"><meta-name>Bodies</meta-name><meta-value>Committee on Technical Barriers to Trade</meta-value></custom-meta>
+<custom-meta id="OriginalLanguage1"><meta-name>OriginalLanguage1</meta-name><meta-value>English</meta-value></custom-meta>
+</custom-meta-group>
+<custom-meta-group>
+<custom-meta id="symbol1"><meta-name>Symbol</meta-name><meta-value>G/TBT/N/KOR/1031</meta-value></custom-meta>
+</custom-meta-group>
+</book-meta>
+<front-matter>
+<front-matter-part xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<named-book-part-body>
+<p>The following notification is being circulated in accordance with Article 10.6</p>
+<table-wrap orientation="portrait" position="float" id="ta">
+<table rules="groups">
+<col span="1" width="7.78%"/>
+<col span="1" width="92.22%"/>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: double 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top">
+<!-- Warning: Content model for td does not allow element subtitle here
+ in unnamed entity at line 48 char 146 of file:///Users/Emin/AppData/Local/EXTYLES/TMP/RXPin.xml
+--> <subtitle><bold>1.</bold></subtitle></td>
+<td colspan="1" rowspan="1" style="border-top: double 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt" align="left" valign="top"><bold>Notifying Member:</bold> <underline>REPUBLIC OF KOREA</underline><break/><bold>If applicable, name of local government involved (Article 3.2 and 7.2):</bold></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top"><bold>2.</bold></td>
+<td colspan="1" rowspan="1" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top"><bold>Agency responsible:</bold> Korean Agency for Technology and Standards (KATS)<break/><bold>Name and address (including telephone and fax numbers, email and website addresses, if available) of agency or authority designated to handle comments regarding the notification shall be indicated if different from above:</bold><break/>Electrical &#x0026; Telecommunications Product Safety Division<break/>Korean Agency for Technology and Standards<break/>Ministry of Trade, Industry and Energy<break/>93, Isu-ro, Maengdong-myeon, Eumseong-gun, Chungcheongbuk-do, 27737 Republic of Korea<break/>Tel.: (+82) 43 870 5443 Fax: (+82) 43 870 5676 email: <email xlink:href="psd0@korea.kr">psd0@korea.kr</email><break/>Website: <ext-link xlink:href="http://www.kats.go.kr" ext-link-type="uri">http://www.kats.go.kr</ext-link></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top"><bold>3.</bold></td>
+<td colspan="1" rowspan="1" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt" align="left" valign="top"><bold>Notified under Article 2.9.2 [X], 2.10.1 [ ], 5.6.2 [ ], 5.7.1 [ ], other:</bold></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top"><bold>4.</bold></td>
+<td colspan="1" rowspan="1" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt" align="left" valign="top"><bold>Products covered (HS or CCCN where applicable, otherwise national tariff heading. ICS numbers may be provided in addition, where applicable):</bold> Appliances for heating liquids</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top"><bold>5.</bold></td>
+<td colspan="1" rowspan="1" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt" align="left" valign="top"><bold>Title, number of pages and language(s) of the notified document:</bold> Technical Regulations for Electrical and Telecommunication Products and Components: Amendment of Technical Regulations for Household and similar electrical appliances – Safety, Part 2-15: Particular requirements for appliances for heating liquids (KC 60335-2-15) (39 page(s), in Korean)</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top"><bold>6.</bold></td>
+<td colspan="1" rowspan="1" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt" align="left" valign="top"><bold>Description of content:</bold> Particular requirements for appliances for heating liquids (KC 60335-2-15) will be harmonized with relevant international standards (IEC 60335-2-15). The main modification is as below.<break/>To add test methods and clarify the condition of test (Clause 15, 19, 20 and etc. )<break/>To add terms and definition (Clause 3)</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top"><bold>7.</bold></td>
+<td colspan="1" rowspan="1" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt" align="left" valign="top"><bold>Objective and rationale, including the nature of urgent problems where applicable:</bold> Harmonization</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top"><bold>8.</bold></td>
+<td colspan="1" rowspan="1" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt" align="left" valign="top"><bold>Relevant documents:</bold><break/>KATS Public Notification No.2021-0345 (Nov 15, 2021),<break/>IEC 60335-2-15</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top"><bold>9.</bold></td>
+<td colspan="1" rowspan="1" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt" align="left" valign="top"><bold>Proposed date of adoption:</bold> To be determined<break/><bold>Proposed date of entry into force:</bold> To be determined</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: solid 0.75pt" align="justify" valign="top"><bold>10.</bold></td>
+<td colspan="1" rowspan="1" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: solid 0.75pt" align="left" valign="top"><bold>Final date for comments:</bold> 60 days from notification</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" scope="row" style="border-left: double 0.75pt; border-top: solid 0.75pt; border-bottom: double 0.75pt" align="justify" valign="top"><bold>11.</bold></td>
+<td colspan="1" rowspan="1" style="border-top: solid 0.75pt; border-right: double 0.75pt; border-bottom: double 0.75pt" align="justify" valign="top"><bold>Texts available from: National enquiry point [X] or address, telephone and fax numbers and email and website addresses, if available, of other body:</bold><break/>Korea WTO TBT Enquiry Point<break/>Technical Barriers to Trade (TBT) Division<break/>Korean Agency for Technology and Standards (KATS)<break/>93 Isu-ro Maengdong-myeon Eumseong-gun<break/>Chungchungbuk-do <break/>27737<break/>+(82) 43 870 5525<break/>+(82) 43 870 5682 (Fax)<break/><email xlink:href="tbt@korea.kr">tbt@korea.kr</email><break/><ext-link xlink:href="http://www.knowtbt.kr" ext-link-type="uri">http://www.knowtbt.kr</ext-link><break/><ext-link xlink:href="https://members.wto.org/crnattachments/2021/TBT/KOR/21_7436_00_x.pdf" ext-link-type="uri">https://members.wto.org/crnattachments/2021/TBT/KOR/21_7436_00_x.pdf</ext-link><break/><ext-link xlink:href="https://members.wto.org/crnattachments/2021/TBT/KOR/21_7436_01_x.pdf" ext-link-type="uri">https://members.wto.org/crnattachments/2021/TBT/KOR/21_7436_01_x.pdf</ext-link></td>
+</tr>
+</tbody></table></table-wrap>
+</named-book-part-body>
+</front-matter-part>
+</front-matter>
+</book>
