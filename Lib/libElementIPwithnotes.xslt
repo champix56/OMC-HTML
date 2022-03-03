@@ -200,9 +200,11 @@
 		</li>
 	</xsl:template>
 	<xsl:template match="table-wrap">
-		<xsl:if test="label|caption/title"><h3>
-			<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>
-		</h3></xsl:if>
+		<xsl:if test="label|caption/title">
+			<h3>
+				<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>
+			</h3>
+		</xsl:if>
 		<xsl:apply-templates select="table"/>
 	</xsl:template>
 	<xsl:template match="table">
@@ -228,5 +230,8 @@
 		<ul list-style="none">
 			<xsl:apply-templates select="//fn"/>
 		</ul>
+	</xsl:template>
+	<xsl:template match="break">
+		<br/>
 	</xsl:template>
 </xsl:stylesheet>
