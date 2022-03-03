@@ -14,20 +14,19 @@
 					<xsl:call-template name="cssContent"/>
 				</style>
 			</head>
-		<!--	<body>
-				<xsl:call-template name="header"/>
-				<xsl:call-template name="title"/>
-				<xsl:call-template name="toc"/>
-				<xsl:apply-templates select="//body/sec"/>
-			</body>
-			<footer>
-				<xsl:call-template name="notes"/>
-			</footer>-->
 			<xsl:apply-templates select="/book"/>
 		</html>
 	</xsl:template>
 	<xsl:template match="/book[book-body]">
-	IP-TPR
+		<body>
+			<xsl:call-template name="header"/>
+			<xsl:call-template name="title"/>
+			<xsl:call-template name="toc"/>
+			<xsl:apply-templates select="//body/sec"/>
+		</body>
+		<footer>
+			<xsl:call-template name="notes"/>
+		</footer>
 	</xsl:template>
 	<xsl:template match="/book[not(book-body)]">
 	NOTIFIFICATIONS
