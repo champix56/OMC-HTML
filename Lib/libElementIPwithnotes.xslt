@@ -209,8 +209,16 @@
 	</xsl:template>
 	<xsl:template match="table">
 		<table id="{../@id}">
-			<xsl:copy-of select="thead|tbody|tfoot|tr"/>
+			<xsl:apply-templates select="thead|tbody|tfoot|tr"/>
 		</table>
+	</xsl:template>
+	<xsl:template match="thead|tbody|tfoot|tr|td">
+		<xsl:element name="{name()}">
+			<xsl:for-each select="@*">
+				<xsl:attribute name="{name()}"><xsl:value-of select="."/></xsl:attribute>
+			</xsl:for-each>
+			<xsl:apply-templates select="*"/>
+		</xsl:element>
 	</xsl:template>
 	<xsl:template match="fig">
 		<h3 id="{@id}">
