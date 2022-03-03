@@ -12,6 +12,19 @@
 				</title>
 				<style type="text/css">
 					<xsl:call-template name="cssContent"/>
+					.notif-table-wrap{
+						margin:0;
+						border-style:double;
+					}
+					.notif-table-wrap table{
+						border:none !important;
+						width:100%;
+						margin:0;
+					}
+					.notif-table-wrap table td{
+						border-left: none;
+						border-right: none;
+					}
 				</style>
 			</head>
 			<xsl:apply-templates select="/book"/>
@@ -32,6 +45,9 @@
 		<body>
 			<xsl:call-template name="header"/>
 			<xsl:call-template name="title"/>
+			<div class="notif-table-wrap">
+				<xsl:apply-templates select="front-matter/front-matter-part/named-book-part-body/table-wrap"/>
+			</div>
 		</body>
 	</xsl:template>
 </xsl:stylesheet>

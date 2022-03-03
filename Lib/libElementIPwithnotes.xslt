@@ -200,9 +200,9 @@
 		</li>
 	</xsl:template>
 	<xsl:template match="table-wrap">
-		<h3>
+		<xsl:if test="label|caption/title"><h3>
 			<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>
-		</h3>
+		</h3></xsl:if>
 		<xsl:apply-templates select="table"/>
 	</xsl:template>
 	<xsl:template match="table">
