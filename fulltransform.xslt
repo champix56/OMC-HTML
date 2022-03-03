@@ -29,6 +29,9 @@
 		</footer>
 	</xsl:template>
 	<xsl:template match="/book[not(book-body)]">
-	NOTIFIFICATIONS
+		<body>
+			<xsl:call-template name="header"/>
+			<xsl:call-template name="title"/>
+		</body>
 	</xsl:template>
 </xsl:stylesheet>

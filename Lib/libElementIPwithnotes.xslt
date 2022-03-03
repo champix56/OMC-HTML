@@ -57,9 +57,17 @@
 		</div>
 	</xsl:template>
 	<xsl:template name="title">
-		<h1 class="center">
-			<xsl:value-of select="/book/book-meta/book-title-group/book-title"/>
-		</h1>
+		<xsl:choose>
+			<xsl:when test="string-length(/book/book-meta/book-title-group/book-title)=0">
+				<xsl:message>ERROR : corriger le style du titre dans le docx</xsl:message>
+				<h1 style="color:RED">ERREUR DE SERIALIZATION STYLE TITRE</h1>
+			</xsl:when>
+			<xsl:otherwise>
+				<h1 class="center">
+					<xsl:value-of select="/book/book-meta/book-title-group/book-title"/>
+				</h1>
+			</xsl:otherwise>
+		</xsl:choose>
 		<h2 class="center">
 			<xsl:value-of select="/book/book-meta/book-title-group/subtitle"/>
 		</h2>
