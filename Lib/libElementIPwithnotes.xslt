@@ -137,14 +137,13 @@
 	<!--	test notes de bas de page-->
 	<xsl:template match="xref">
 		<sup id="fntext-{@rid} ">
-			<a href="id={@rid}" type="ref-type={@ref-type}">
+			<a href="#{@rid}" type="ref-type={@ref-type}">
 				<xsl:value-of select="."/>
 			</a>
 		</sup>
 	</xsl:template>
 	<!--<xsl:template name="footnotes">-->
 	<xsl:template match="fn">
-		<ul list-style="none">
 			<li id="{@id}" class="note-list">
 				<span class="reference-text">
 					<xsl:value-of select="label"/>
@@ -153,7 +152,6 @@
 						<i class="icon-back-to-top"/> Back to text</a>
 				</span>
 			</li>
-		</ul>
 	</xsl:template>
 	<!--</xsl:template>-->
 	<!--	xml
