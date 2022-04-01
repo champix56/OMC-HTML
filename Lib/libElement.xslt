@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<xsl:param name="mediaBase">G1803 - </xsl:param>
+	<xsl:include href="./HTMLandFOCommonLib.xsl"/>
+	<xsl:include href="./libToc.xslt"/>
+	<!--Modification manuelle du nom de repertoire dans troncature-->
+	<xsl:param name="mediaBase">G419 - </xsl:param>
 	<!--Voir pour production nomanclature du doc-->
 	<xsl:param name="mediaPath" select="concat('./',$mediaBase,'Images/')"/>
 	<xsl:param name="imgExtension">.png</xsl:param>
@@ -16,12 +19,12 @@
 		<xsl:value-of select="$imgPosition"/>
 		<xsl:value-of select="$imgExtension"/>
 	</xsl:template>
-	<xsl:include href="./libToc.xslt"/>
 	<xsl:template name="header">
 		<div class="header">
 			<div class="header-top">
 				<div class="header-logo">
-					<img alt="logo OMC" src="{$mediaPath}logo.png"/>
+					<!--<img alt="logo OMC" src="{$mediaPath}logo.png"/>-->
+					<img alt="logo OMC" src="../Lib/Images/logo.png"/>
 					<br/>
 					<div class="publisher-id">(<xsl:value-of select="/book/book-meta/book-id[@book-id-type='publisher-id']"/>)</div>
 				</div>
@@ -57,13 +60,27 @@
 		</div>
 	</xsl:template>
 	<xsl:template name="title">
-	<h1 class="center"><xsl:value-of select="/book/book-meta/book-title-group/book-title"/></h1>
-	<h2 class="center"><xsl:value-of select="/book/book-meta/book-title-group/subtitle"/></h2>
-	<h3 class="center"><xsl:value-of select="/book/book-meta//custom-meta[@id='DocCountry']/meta-value"/></h3>
-	<xsl:apply-templates select="/book/front-matter/front-matter-part/named-book-part-body/p"/>
+		<h1 class="center">
+			<xsl:value-of select="/book/book-meta/book-title-group/book-title"/>
+		</h1>
+		<h2 class="center">
+			<xsl:value-of select="/book/book-meta/book-title-group/subtitle"/>
+		</h2>
+		<h3 class="center">
+			<xsl:value-of select="/book/book-meta//custom-meta[@id='DocCountry']/meta-value"/>
+		</h3>
+		<h3 class="center">
+			<xsl:value-of select="//subj-group[@subj-group-type='report-date-range']//subject"/>
+		</h3>
+		<h3 class="center">
+			<xsl:value-of select="//contrib-group"/>
+		</h3>
+		<xsl:apply-templates select="/book/front-matter/front-matter-part/named-book-part-body/p"/>
 	</xsl:template>
-	<xsl:template name="monthStringFromNumber">
-		<!--template format mois EN-->
+	<!--template format mois EN-->
+	<!--<xsl:template name="monthStringFromNumber">
+		-->
+	<!--
 		<xsl:param name="monthNumber" select="/book/book-meta/pub-date/month"/>
 		<xsl:choose>
 			<xsl:when test="$monthNumber=1"> January </xsl:when>
@@ -79,7 +96,7 @@
 			<xsl:when test="$monthNumber=11"> November </xsl:when>
 			<xsl:when test="$monthNumber=12"> December </xsl:when>
 		</xsl:choose>
-	</xsl:template>
+	</xsl:template>-->
 	<xsl:template name="cssContent">
 	body {padding:7em;}
 	h1,h2,h3,h4,h5,h6 {color:#006283;}
@@ -114,7 +131,9 @@
 	<xsl:template name="sec-title">
 		<xsl:variable name="seclevel" select="count(ancestor-or-self::sec)"/>
 		<xsl:element name="h{$seclevel+1}">
-			<xsl:attribute name="id"><xsl:value-of select="@id"></xsl:value-of></xsl:attribute>
+			<xsl:attribute name="id">
+				<xsl:value-of select="@id"/>
+			</xsl:attribute>
 			<xsl:value-of select="label"/>. 
 		<xsl:value-of select="title"/>
 		</xsl:element>
@@ -133,6 +152,16 @@
 			<xsl:value-of select="."/>
 		</a>
 	</xsl:template>
+	<xsl:template match="fn">
+		<li id="{@id}" class="note-list">
+			<span class="reference-text">
+				<xsl:value-of select="label"/>
+				<xsl:value-of select="p"/>
+				<a href="#fntext-1" class="small">
+					<i class="icon-back-to-top"/> Back to text</a>
+			</span>
+		</li>
+	</xsl:template>
 	<xsl:template match="email">
 		<a href="mailto:{@xlink:href}">
 			<xsl:value-of select="."/>
@@ -149,16 +178,39 @@
 		</li>
 	</xsl:template>
 	<xsl:template match="table-wrap">
-		<h3>
-			<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>
-		</h3>
+		<xsl:if test="label|caption/title">
+			<h3>
+				<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>
+			</h3>
+		</xsl:if>
 		<xsl:apply-templates select="table"/>
 	</xsl:template>
 	<xsl:template match="table">
 		<table id="{../@id}">
-			<xsl:copy-of select="thead|tbody|tfoot|tr"/>
+			<xsl:apply-templates select="thead|tbody|tfoot|tr"/>
 		</table>
 	</xsl:template>
+	<xsl:template match="thead|tbody|tfoot|tr|td|th">
+		<xsl:element name="{name()}">
+			<xsl:for-each select="@*">
+				<xsl:attribute name="{name()}">
+					<xsl:value-of select="."/>
+				</xsl:attribute>
+			</xsl:for-each>
+			<xsl:apply-templates select="text()|*"/>
+		</xsl:element>
+	</xsl:template>
+	<!--	<xsl:template match="table-wrap">
+		<h3>
+			<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>
+		</h3>
+		<xsl:apply-templates select="table"/>
+	</xsl:template>-->
+	<!--<xsl:template match="table">
+		<table id="{../@id}">
+			<xsl:copy-of select="thead|tbody|tfoot|tr"/>
+		</table>
+	</xsl:template>-->
 	<xsl:template match="fig">
 		<h3 id="{@id}">
 			<xsl:value-of select="label"/>
@@ -171,5 +223,26 @@
 			<xsl:call-template name="imgPathCreator"/>
 		</xsl:variable>
 		<img alt="{../label}" src="{$src}"/>
+	</xsl:template>
+	<xsl:template name="notes">
+		<xsl:if test="fn">
+			<h3>Notes</h3>
+			<ul list-style="none">
+				<xsl:apply-templates select="//fn"/>
+			</ul>
+		</xsl:if>
+	</xsl:template>
+	<xsl:template match="break">
+		<br/>
+	</xsl:template>
+	<xsl:template match="underline">
+		<u>
+			<xsl:value-of select="."/>
+		</u>
+	</xsl:template>
+	<xsl:template match="bold">
+		<b>
+			<xsl:value-of select="."/>
+		</b>
 	</xsl:template>
 </xsl:stylesheet>
