@@ -98,7 +98,11 @@
 		</xsl:choose>
 	</xsl:template>-->
 	<xsl:template name="cssContent">
-	body {padding:7em;}
+	body {	padding:7em;
+			text-align: justify;
+			<!--font-weight:900;-->
+			font-size:14pt;
+			font-family: "Verdana";}<!--ajustement mise en page-->
 	h1,h2,h3,h4,h5,h6 {color:#006283;}
 	.alpha-lower {list-style-type:lower-alpha;}
 	.alpha-upper {list-style-type:upper-alpha;}
@@ -112,20 +116,32 @@
 			border-collapse:collapse;}
 	tbody tr td:nth-child(odd) {background-color: #91A9A7;}
 	td {border-left:1px solid black;}
-	.header-top {display:flex;
-				width:100%;
-				border-bottom:1px solid black;}
-	.header-bottom {display:flex;
-				width:100%;}			
+	.header-top {	display:flex;
+					width:100%;
+					border-bottom:1px solid black;}
+	.header-bottom {	display:flex;
+					width:100%;}			
 	.header-logo, .header-bottom-left {flex-grow:1;}
-	.header-logo img {max-width:calc(100vw - 150px);min-width:70px;}
+	.header-logo img {	max-width:calc(100vw - 150px);
+						min-width:70px;
+						margin-top: -50px;
+						margin-left: -25px;
+						margin-bottom: 5px;}
 	.publisher-id {color:red;}
-	.header-restricted {color:red;
-				font-weight:700;
-				text-transform:uppercase;}
-	.header-symbol {font-weight:700}
+	.header-restricted {	color:red;
+						font-weight:700;
+						text-transform:uppercase;}
+	.header-symbol {font-weight:700;}
+	.header-date {margin-top:30px;}
 	.uppercase {text-transform:uppercase;}
 	.center {text-align:center;}
+	a[href="#top"], .backToTop {float: right;
+    margin-top: 0 !important;
+    font-size: 10.5px !important;
+    font-family: "Museo Sans 300";
+    font-weight: normal;
+    text-decoration: none !important;
+    color: #00aeff !important;}
 						
 	</xsl:template>
 	<xsl:template name="sec-title">
@@ -136,6 +152,35 @@
 			</xsl:attribute>
 			<xsl:value-of select="label"/>. 
 		<xsl:value-of select="title"/>
+			<a href="#top" class="backToTop"> back to top</a>
+			<!--Ajout retour au top conditionnel langue-->
+			<!--test if-->
+				<!--<xsl:if test="book[@xml:lang='EN']">
+				<a href="#top" class="backToTop"> back to top</a>
+			</xsl:if>
+				
+				<xsl:if test="book[@xml:lang='FR']">
+				<a href="#top" class="backToTop"> haut de page</a>
+			</xsl:if>
+				
+				<xsl:if test="book[@xml:lang='SP']">
+				<a href="#top" class="backToTop"> volver al principio</a>
+			</xsl:if>-->
+			
+			<!--test when-->
+			<!--<xsl:choose>
+			<xsl:when test="book[@xml:lang='EN']">
+				<a href="#top" class="backToTop"> back to top</a>
+			</xsl:when>
+				
+				<xsl:when test="book[@xml:lang='FR']">
+				<a href="#top" class="backToTop"> haut de page</a>
+			</xsl:when>
+				
+				<xsl:when test="book[@xml:lang='SP']">
+				<a href="#top" class="backToTop"> volver al principio</a>
+			</xsl:when>
+			</xsl:choose>-->	
 		</xsl:element>
 	</xsl:template>
 	<xsl:template match="sec">
