@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<xsl:output method="html" encoding="UTF-8" indent="yes"/>
-	<xsl:include href="lib/libElementIPwithnotes.xslt"/>
+	<xsl:include href="lib/libElement.xslt"/>
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -25,7 +25,7 @@
 						border-left: none;
 						border-right: none;
 					}
-					.notif-table-wrap td, .notif-table-wrap th
+					.notif-table-wrap td, .notif-table-wrap th, .rta-table-wrap td, .rta-table-wrap th
 					{
 						background-color:transparent !important;
 					}
@@ -34,6 +34,7 @@
 			<xsl:apply-templates select="/book"/>
 		</html>
 	</xsl:template>
+	<!--architecture XML courante-->
 	<xsl:template match="/book[book-body]">
 		<body>
 			<xsl:call-template name="header"/>
@@ -45,6 +46,17 @@
 			<xsl:call-template name="notes"/>
 		</footer>
 	</xsl:template>
+	<!--architecture XML courante tableau>-->
+	<xsl:template match="/book/book-body[book-part]">
+		<body>
+			<xsl:call-template name="header"/>
+			<xsl:call-template name="title"/>
+			<div class="rta-table-wrap">
+				<xsl:apply-templates select="body/table-wrap"/>
+			</div>
+		</body>
+	</xsl:template>
+	<!--architecture XML notifications tableau>-->
 	<xsl:template match="/book[not(book-body)]">
 		<body>
 			<xsl:call-template name="header"/>
