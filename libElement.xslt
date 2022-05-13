@@ -98,8 +98,37 @@
 		</xsl:choose>
 	</xsl:template>-->
 	<xsl:template name="cssContent">
-	body {padding:7em;}
+	body {	padding:7em;
+			text-align: justify;
+			<!--font-weight:900;-->
+			font-size:14pt;
+			font-family: Verdana;}<!--ajustement mise en page-->
+			
 	h1,h2,h3,h4,h5,h6 {color:#006283;}
+	h1 {font-size:27px !important;
+		font-family: museo sans 700;}
+	h2 {font-size:20px !important;
+		font-family: museo sans 700;}
+	h3 {font-size:17px !important;
+		font-family: museo sans 700;}
+	h4 {font-size:14PX !important;
+		font-family: museo sans 300;}
+	h5 {font-size:0.9em !important;
+		font-family: museo sans 300;}
+	h6 {font-size:0;8em !important;
+		font-family: museo sans 300;}
+	<!--h1 {font-size:2,07em !important;
+		font-family: museo sans 700;}
+	h2 {font-size:1,42em !important;
+		font-family: museo sans 700;}
+	h3 {font-size:1,21em !important;
+		font-family: museo sans 700;}
+	h4 {font-size:1em !important;
+		font-family: museo sans 300;}
+	h5 {font-size:0.9em !important;
+		font-family: museo sans 300;}
+	h6 {font-size:0;8em !important;
+		font-family: museo sans 300;}-->	
 	.alpha-lower {list-style-type:lower-alpha;}
 	.alpha-upper {list-style-type:upper-alpha;}
 	.roman-lower {list-style-type:lower-roman;}
@@ -112,20 +141,49 @@
 			border-collapse:collapse;}
 	tbody tr td:nth-child(odd) {background-color: #91A9A7;}
 	td {border-left:1px solid black;}
-	.header-top {display:flex;
-				width:100%;
-				border-bottom:1px solid black;}
-	.header-bottom {display:flex;
-				width:100%;}			
+	.header-top {	display:flex;
+					width:100%;
+					border-bottom:1px solid black;}
+	.header-bottom {	display:flex;
+					width:100%;}			
 	.header-logo, .header-bottom-left {flex-grow:1;}
-	.header-logo img {max-width:calc(100vw - 150px);min-width:70px;}
+	.header-logo img {	max-width:calc(100vw - 150px);
+						min-width:70px;
+						margin-top: -50px;
+						margin-left: -25px;
+						margin-bottom: 5px;}
 	.publisher-id {color:red;}
-	.header-restricted {color:red;
-				font-weight:700;
-				text-transform:uppercase;}
-	.header-symbol {font-weight:700}
+	.header-restricted {	color:red;
+						font-weight:700;
+						text-transform:uppercase;}
+	.header-symbol {font-weight:700;}
+	.header-date {margin-top:30px;}
 	.uppercase {text-transform:uppercase;}
 	.center {text-align:center;}
+	a[href="#top"], .backToTop {float: right;
+    margin-top: 0 !important;
+    font-size: 10.5px !important;
+    font-family: "Museo Sans 300";
+    font-weight: normal;
+    text-decoration: none !important;
+    color: #006283 !important;}
+    .supnote, .supnote a {
+		top: -0.8em;
+		color: #00aeff;
+		font-size: 60%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+	.notes {list-style-type: circle;
+			padding-left: 20px;}
+	.notes :before {<!--font-family: 'WTO';
+					content: '\0041';
+					padding: 0;-->
+					color: #00AEFF;
+					font-size: 60%;
+					<!--margin-right: 10px;-->
+					margin-left: 20px;}
 						
 	</xsl:template>
 	<xsl:template name="sec-title">
@@ -136,6 +194,35 @@
 			</xsl:attribute>
 			<xsl:value-of select="label"/>. 
 		<xsl:value-of select="title"/>
+			<a href="#top" class="backToTop"> back to top</a>
+			<!--Ajout retour au top conditionnel langue-->
+			<!--test if-->
+				<!--<xsl:if test="book[@xml:lang='EN']">
+				<a href="#top" class="backToTop"> back to top</a>
+			</xsl:if>
+				
+				<xsl:if test="book[@xml:lang='FR']">
+				<a href="#top" class="backToTop"> haut de page</a>
+			</xsl:if>
+				
+				<xsl:if test="book[@xml:lang='SP']">
+				<a href="#top" class="backToTop"> volver al principio</a>
+			</xsl:if>-->
+			
+			<!--test when-->
+			<!--<xsl:choose>
+			<xsl:when test="book[@xml:lang='EN']">
+				<a href="#top" class="backToTop"> back to top</a>
+			</xsl:when>
+				
+				<xsl:when test="book[@xml:lang='FR']">
+				<a href="#top" class="backToTop"> haut de page</a>
+			</xsl:when>
+				
+				<xsl:when test="book[@xml:lang='SP']">
+				<a href="#top" class="backToTop"> volver al principio</a>
+			</xsl:when>
+			</xsl:choose>-->	
 		</xsl:element>
 	</xsl:template>
 	<xsl:template match="sec">
@@ -144,7 +231,7 @@
 	</xsl:template>
 	<xsl:template match="p">
 		<p>
-			<xsl:apply-templates select="text()|*"/>
+			<xsl:apply-templates select="text()|*[name()!='fn']"/>
 		</p>
 	</xsl:template>
 	<xsl:template match="ext-link">
@@ -152,13 +239,22 @@
 			<xsl:value-of select="."/>
 		</a>
 	</xsl:template>
+	<xsl:template match="xref">
+		<sup id="{@rid}" class="supnote">
+			<a href="#{@rid}">
+				<xsl:value-of select="."/>
+			</a>
+		</sup>
+	</xsl:template>
 	<xsl:template match="fn">
 		<li id="{@id}" class="note-list">
 			<span class="reference-text">
 				<xsl:value-of select="label"/>
+				<span>. </span>
 				<xsl:value-of select="p"/>
-				<a href="#fntext-1" class="small">
-					<i class="icon-back-to-top"/> Back to text</a>
+				<span>&#160;</span>
+				<a href="#{@id}" class="small">
+					<i class="icon-back-to-top"/>Back to text</a>
 			</span>
 		</li>
 	</xsl:template>
@@ -225,12 +321,12 @@
 		<img alt="{../label}" src="{$src}"/>
 	</xsl:template>
 	<xsl:template name="notes">
-		<xsl:if test="fn">
-			<h3>Notes</h3>
-			<ul list-style="none">
-				<xsl:apply-templates select="//fn"/>
-			</ul>
-		</xsl:if>
+		<!--<xsl:if test="fn">-->
+		<h3>Notes</h3>
+		<ul class="notes">
+			<xsl:apply-templates select="//fn"/>
+		</ul>
+		<!--</xsl:if>-->
 	</xsl:template>
 	<xsl:template match="break">
 		<br/>
