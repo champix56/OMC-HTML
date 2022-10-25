@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<xsl:include href="./libToc.xslt"/>
+	<xsl:include href="./HTMLandFOCommonLib.xsl"/>
 	<xsl:param name="mediaBase">M103 - </xsl:param>
 	<!--Voir pour production nomanclature du doc-->
 	<xsl:param name="mediaPath" select="concat('./',$mediaBase,'Images/')"/>
@@ -16,12 +18,13 @@
 		<xsl:value-of select="$imgPosition"/>
 		<xsl:value-of select="$imgExtension"/>
 	</xsl:template>
-	<xsl:include href="./libToc.xslt"/>
+	
 	<xsl:template name="header">
 		<div class="header">
 			<div class="header-top">
 				<div class="header-logo">
-					<img alt="logo OMC" src="{$mediaPath}logo.png"/>
+					<!--<img alt="logo OMC" src="{$mediaPath}logo.png"/>-->
+					<img alt="logo OMC" src="../logo.png"/>
 					<br/>
 					<div class="publisher-id">(<xsl:value-of select="/book/book-meta/book-id[@book-id-type='publisher-id']"/>)</div>
 				</div>
@@ -76,8 +79,8 @@
 		</h3>
 		<xsl:apply-templates select="/book/front-matter/front-matter-part/named-book-part-body/p"/>
 	</xsl:template>
-	<xsl:template name="monthStringFromNumber">
-		<!--template format mois EN-->
+	<!--<xsl:template name="monthStringFromNumber">
+		--><!--template format mois EN--><!--
 		<xsl:param name="monthNumber" select="/book/book-meta/pub-date/month"/>
 		<xsl:choose>
 			<xsl:when test="$monthNumber=1"> January </xsl:when>
@@ -93,7 +96,7 @@
 			<xsl:when test="$monthNumber=11"> November </xsl:when>
 			<xsl:when test="$monthNumber=12"> December </xsl:when>
 		</xsl:choose>
-	</xsl:template>
+	</xsl:template>-->
 	<xsl:template name="cssContent">
 	body {padding:7em;}
 	h1,h2,h3,h4,h5,h6 {color:#006283;}
@@ -151,7 +154,7 @@
 		</sup>
 	</xsl:template>
 	<!--<xsl:template name="footnotes">-->
-	<xsl:template match="fn">
+<!--	<xsl:template match="fn">
 		<li id="{@id}" class="note-list">
 			<span class="reference-text">
 				<xsl:value-of select="label"/>
@@ -161,7 +164,7 @@
 			</span>
 		</li>
 	</xsl:template>
-	<!--</xsl:template>-->
+-->	<!--</xsl:template>-->
 	<!--	xml
 
 <p>2.1.  	The <underline>Chair</underline> recalled treaties<xref rid="fn1" ref-type="fn"><sup>1</sup></xref>

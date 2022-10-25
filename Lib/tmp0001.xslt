@@ -3,19 +3,7 @@
 	<xsl:include href="./HTMLandFOCommonLib.xsl"/>
 	<xsl:include href="./libToc.xslt"/>
 	<!--Modification manuelle du nom de repertoire dans troncature-->
-	<!--<xsl:param name="mediaBase">G419 - </xsl:param>-->
-	<!--Modification automatique du nom de repertoire dans troncature-->
-	<xsl:param name="mediaBase">
-		<xsl:value-of select="//book-id[@book-id-type='publisher-id']"/>
-	</xsl:param>
-	<xsl:param name="collectionMetaTitle">
-		<xsl:value-of select="/book/collection-meta/title-group/title"/>
-	</xsl:param>
-	<xsl:param name="bookMetaSubject">
-	<xsl:for-each select="/book/book-meta/subj-group[@subj-group-type='report-type']">
-		<xsl:value-of select="subject"/>
-		</xsl:for-each>
-	</xsl:param>
+	<xsl:param name="mediaBase">G419 - </xsl:param>
 	<!--Voir pour production nomanclature du doc-->
 	<xsl:param name="mediaPath" select="concat('./',$mediaBase,'Images/')"/>
 	<xsl:param name="imgExtension">.png</xsl:param>
@@ -75,14 +63,9 @@
 		<h1 class="center">
 			<xsl:value-of select="/book/book-meta/book-title-group/book-title"/>
 		</h1>
-		<!--<h2 class="center">
+		<h2 class="center">
 			<xsl:value-of select="/book/book-meta/book-title-group/subtitle"/>
-		</h2>-->
-		<xsl:for-each select="/book/book-meta/book-title-group/subtitle">
-			<h2 class="center">
-				<xsl:value-of select="."/>
-			</h2>
-		</xsl:for-each>
+		</h2>
 		<h3 class="center">
 			<xsl:value-of select="/book/book-meta//custom-meta[@id='DocCountry']/meta-value"/>
 		</h3>
@@ -94,21 +77,26 @@
 		</h3>
 		<xsl:apply-templates select="/book/front-matter/front-matter-part/named-book-part-body/p"/>
 	</xsl:template>
-	<xsl:template name="summary">
-		<xsl:if test="/book/front-matter//front-matter-part/named-book-part-body/sec">
-			<div class="sum">
-				<h1 id="#{title}">
-					<!--<xsl:value-of select="//front-matter/front-matter-part[@book-part-type]/book-part-meta/title-group/title"/>-->
-					<xsl:value-of select="/book/front-matter/front-matter-part[2]/named-book-part-body//title"/>
-				</h1>
-				<xsl:for-each select="/book/front-matter/front-matter-part[2]/named-book-part-body//p">
-					<p>
-						<xsl:value-of select="."/>
-					</p>
-				</xsl:for-each>
-			</div>
-		</xsl:if>
-	</xsl:template>
+	<!--template format mois EN-->
+	<!--<xsl:template name="monthStringFromNumber">
+		-->
+	<!--
+		<xsl:param name="monthNumber" select="/book/book-meta/pub-date/month"/>
+		<xsl:choose>
+			<xsl:when test="$monthNumber=1"> January </xsl:when>
+			<xsl:when test="$monthNumber=2"> February </xsl:when>
+			<xsl:when test="$monthNumber=3"> March </xsl:when>
+			<xsl:when test="$monthNumber=4"> April </xsl:when>
+			<xsl:when test="$monthNumber=5"> May </xsl:when>
+			<xsl:when test="$monthNumber=6"> June </xsl:when>
+			<xsl:when test="$monthNumber=7"> July </xsl:when>
+			<xsl:when test="$monthNumber=8"> August </xsl:when>
+			<xsl:when test="$monthNumber=9"> September </xsl:when>
+			<xsl:when test="$monthNumber=10"> October </xsl:when>
+			<xsl:when test="$monthNumber=11"> November </xsl:when>
+			<xsl:when test="$monthNumber=12"> December </xsl:when>
+		</xsl:choose>
+	</xsl:template>-->
 	<xsl:template name="cssContent">
 	body {	padding:7em;
 			text-align: justify;
@@ -117,18 +105,6 @@
 			font-family: Verdana;}<!--ajustement mise en page-->
 			
 	h1,h2,h3,h4,h5,h6 {color:#006283;}
-	h1 {font-size:27px !important;
-		font-family: museo sans 700;}
-	h2 {font-size:20px !important;
-		font-family: museo sans 700;}
-	h3 {font-size:17px !important;
-		font-family: museo sans 700;}
-	h4 {font-size:14PX !important;
-		font-family: museo sans 300;}
-	h5 {font-size:0.9em !important;
-		font-family: museo sans 300;}
-	h6 {font-size:0;8em !important;
-		font-family: museo sans 300;}
 	<!--h1 {font-size:2,07em !important;
 		font-family: museo sans 700;}
 	h2 {font-size:1,42em !important;
@@ -140,7 +116,7 @@
 	h5 {font-size:0.9em !important;
 		font-family: museo sans 300;}
 	h6 {font-size:0;8em !important;
-		font-family: museo sans 300;}-->	
+		font-family: museo sans 300;}-->
 	.alpha-lower {list-style-type:lower-alpha;}
 	.alpha-upper {list-style-type:upper-alpha;}
 	.roman-lower {list-style-type:lower-roman;}
@@ -151,7 +127,6 @@
 			border:1px solid black;
 			border-spacing:0;
 			border-collapse:collapse;}
-	table td {padding:10px;}
 	tbody tr td:nth-child(odd) {background-color: #91A9A7;}
 	td {border-left:1px solid black;}
 	.header-top {	display:flex;
@@ -179,24 +154,7 @@
     font-family: "Museo Sans 300";
     font-weight: normal;
     text-decoration: none !important;
-    color: #006283 !important;}
-    .supnote, .supnote a {
-		top: -0.8em;
-		color: #00aeff;
-		font-size: 60%;
-		line-height: 0;
-		position: relative;
-		vertical-align: baseline;
-	}
-	.notes {list-style-type: circle;
-			padding-left: 20px;}
-	.notes :before {<!--font-family: 'WTO';
-					content: '\0041';
-					padding: 0;-->
-					color: #00AEFF;
-					font-size: 60%;
-					<!--margin-right: 10px;-->
-					margin-left: 20px;}
+    color: #00aeff !important;}
 						
 	</xsl:template>
 	<xsl:template name="sec-title">
@@ -243,35 +201,22 @@
 		<xsl:apply-templates select="*[name()!='label'and name()!='title' ]"/>
 	</xsl:template>
 	<xsl:template match="p">
-	
 		<p>
 			<xsl:apply-templates select="text()|*[name()!='fn']"/>
-
 		</p>
-		
 	</xsl:template>
 	<xsl:template match="ext-link">
 		<a href="{@xlink:href}">
 			<xsl:value-of select="."/>
 		</a>
 	</xsl:template>
-	<xsl:template match="xref">
-		<sup id="{@rid}" class="supnote">
-			<a href="#{@rid}">
-				<xsl:value-of select="."/>
-			</a>
-		</sup>
-	</xsl:template>
 	<xsl:template match="fn">
-		<!--<li id="{@id}" class="note-list">-->
-		<li id="fn-[name()!='label']" class="note-list">
+		<li id="{@id}" class="note-list">
 			<span class="reference-text">
 				<xsl:value-of select="label"/>
-				<span>. </span>
 				<xsl:value-of select="p"/>
-				<span>&#160;</span>
-				<a href="#{@id}" class="small">
-					<i class="icon-back-to-top"/>Back to text</a>
+				<a href="#fntext-1" class="small">
+					<i class="icon-back-to-top"/> Back to text</a>
 			</span>
 		</li>
 	</xsl:template>
@@ -324,23 +269,6 @@
 			<xsl:copy-of select="thead|tbody|tfoot|tr"/>
 		</table>
 	</xsl:template>-->
-	<xsl:template name="annex">
-		<xsl:for-each select="/book/book-back/book-app-group/book-app">
-			<p>
-				<xsl:value-of select="/book-part-meta/title-group/title"/>
-			</p>
-			<xsl:for-each select="/body/sec">
-				<p>
-					<p>
-						<xsl:value-of select="/title"/>
-					</p>
-				</p>
-			</xsl:for-each>
-		</xsl:for-each>
-		<!--<ol class="{@list-type}">
-			<xsl:apply-templates select=""/>
-		</ol>-->
-	</xsl:template>
 	<xsl:template match="fig">
 		<h3 id="{@id}">
 			<xsl:value-of select="label"/>
@@ -356,25 +284,12 @@
 	</xsl:template>
 	<xsl:template name="notes">
 		<xsl:if test="fn">
-		<h3>Notes</h3>
-		<ul class="notes">
-			<xsl:apply-templates select="//fn"/>
-		</ul>
+			<h3>Notes</h3>
+			<ul list-style="none">
+				<xsl:apply-templates select="//fn"/>
+			</ul>
 		</xsl:if>
 	</xsl:template>
-	
-	<xsl:template name="displayAnex">
-		<!--<xsl:if test="bookMetaSubject='Secretariat Report'">-->
-		<xsl:call-template name="tocChart"></xsl:call-template>
-		<xsl:call-template name="tocTable"></xsl:call-template>
-		<xsl:call-template name="tocTableAppendix"></xsl:call-template>
-		<!--</xsl:if>-->
-	</xsl:template>
-	
-	
-	
-	
-	
 	<xsl:template match="break">
 		<br/>
 	</xsl:template>
