@@ -41,41 +41,30 @@
 		<body>
 			<xsl:call-template name="header"/>
 			<xsl:call-template name="title"/>
-			
 			<xsl:call-template name="toc"/>
 			<xsl:call-template name="displayAnex"/>
-			<!--<xsl:call-template name="tocChart"/>
-			<xsl:call-template name="tocTable"/>
-			<xsl:call-template name="tocTableAppendix"/>-->
-			<!--<xsl:call-template name="tocBox"/>-->
 			<xsl:call-template name="summary"/>
-			<!--<xsl:call-template name="annex"/>-->
 			<xsl:apply-templates select="//body/sec"/>
 		</body>
 		<footer>
 			<xsl:call-template name="notes"/>
 		</footer>
 	</xsl:template>
-	<!--architecture XML TPR cover text>-->
-	<!--<xsl:template match="/book[front-matter-part]">
-		<body>
-			<xsl:call-template name="header"/>
-			<xsl:call-template name="title"/>
-			<xsl:call-template name="toc"/>
-			<xsl:call-template name="summary"/>
-		</body>
-		<footer>
-			<xsl:call-template name="notes"/>
-		</footer>
-	</xsl:template>-->
+	
 	<!--architecture XML courante tableau>-->
 	<xsl:template match="/book/book-body[book-part]">
 		<body>
 			<xsl:call-template name="header"/>
 			<xsl:call-template name="title"/>
-			<div class="rta-table-wrap">
+			<div class="">
+				
 				<xsl:apply-templates select="body/table-wrap"/>
+					
 			</div>
+			<!--<div class="bckg">
+			<xsl:apply-templates select="table-wrap-foot"/>coucou
+			</div>-->
+			
 		</body>
 	</xsl:template>
 	<!--architecture XML notifications tableau>-->
@@ -85,6 +74,7 @@
 			<xsl:call-template name="title"/>
 			<div class="notif-table-wrap">
 				<xsl:apply-templates select="front-matter/front-matter-part/named-book-part-body/table-wrap"/>
+				
 			</div>
 		</body>
 	</xsl:template>
