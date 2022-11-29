@@ -3,24 +3,24 @@
 	<xsl:include href="./HTMLandFOCommonLib.xsl"/>
 	<xsl:include href="./libToc.xslt"/>
 	<!--Modification manuelle du nom de repertoire dans troncature-->
-	<!--<xsl:param name="mediaBase">G419 - </xsl:param>-->
+	<xsl:param name="mediaBase">S418 - </xsl:param>
 	<!--Modification automatique du nom de repertoire dans troncature-->
-	<xsl:param name="mediaBase">
+	<!--<xsl:param name="mediaBase">
 		<xsl:value-of select="//book-id[@book-id-type='publisher-id']"/>
 	</xsl:param>
-	<xsl:param name="collectionMetaTitle">
-		<xsl:value-of select="/book/collection-meta/title-group/title"/>
-	</xsl:param>
+	<xsl:param name="serialNumber">
+		<xsl:value-of select="/book/book-meta/book-id[@book-id-type='publisher-id']/text()"/>
+	</xsl:param>-->
 	<xsl:param name="bookMetaSubject">
-	<xsl:for-each select="/book/book-meta/subj-group[@subj-group-type='report-type']">
-		<xsl:value-of select="subject"/>
+		<xsl:for-each select="/book/book-meta/subj-group[@subj-group-type='report-type']">
+			<xsl:value-of select="subject"/>
 		</xsl:for-each>
 	</xsl:param>
 	<!--Voir pour production nomanclature du doc-->
 	<xsl:param name="mediaPath" select="concat('./',$mediaBase,'Images/')"/>
 	<xsl:param name="imgExtension">.png</xsl:param>
 	<xsl:template name="imgPathCreator">
-		<xsl:param name="imgPosition" select="count(preceding::graphic)+1"/>
+		<xsl:param name="imgPosition" select="count(preceding::fig)+1"/>
 		<xsl:value-of select="$mediaPath"/>
 		<xsl:value-of select="$mediaBase"/>
 		<xsl:choose>
@@ -152,7 +152,7 @@
 			border-spacing:0;
 			border-collapse:collapse;}
 	table td {padding:10px;}
-	tbody tr td:nth-child(odd) {background-color: #91A9A7;}
+	<!--tbody tr td:nth-child(even) {background-color: #91A9A7;}-->
 	td {border-left:1px solid black;}
 	.header-top {	display:flex;
 					width:100%;
@@ -197,45 +197,26 @@
 					font-size: 60%;
 					<!--margin-right: 10px;-->
 					margin-left: 20px;}
+	.bckg {background-color:red !important;
+			margin-left: 5%;
+			width: 90%;}
+	.disp-none{display:none;}
+	.tab-img{ width: 100%;
+			  border: 0px;
+			  margin: -15px;}
 						
 	</xsl:template>
 	<xsl:template name="sec-title">
 		<xsl:variable name="seclevel" select="count(ancestor-or-self::sec)"/>
 		<xsl:element name="h{$seclevel+1}">
+			
 			<xsl:attribute name="id">
 				<xsl:value-of select="@id"/>
 			</xsl:attribute>
 			<xsl:value-of select="label"/>. 
 		<xsl:value-of select="title"/>
 			<a href="#top" class="backToTop"> back to top</a>
-			<!--Ajout retour au top conditionnel langue-->
-			<!--test if-->
-				<!--<xsl:if test="book[@xml:lang='EN']">
-				<a href="#top" class="backToTop"> back to top</a>
-			</xsl:if>
-				
-				<xsl:if test="book[@xml:lang='FR']">
-				<a href="#top" class="backToTop"> haut de page</a>
-			</xsl:if>
-				
-				<xsl:if test="book[@xml:lang='SP']">
-				<a href="#top" class="backToTop"> volver al principio</a>
-			</xsl:if>-->
 			
-			<!--test when-->
-			<!--<xsl:choose>
-			<xsl:when test="book[@xml:lang='EN']">
-				<a href="#top" class="backToTop"> back to top</a>
-			</xsl:when>
-				
-				<xsl:when test="book[@xml:lang='FR']">
-				<a href="#top" class="backToTop"> haut de page</a>
-			</xsl:when>
-				
-				<xsl:when test="book[@xml:lang='SP']">
-				<a href="#top" class="backToTop"> volver al principio</a>
-			</xsl:when>
-			</xsl:choose>-->	
 		</xsl:element>
 	</xsl:template>
 	<xsl:template match="sec">
@@ -243,38 +224,52 @@
 		<xsl:apply-templates select="*[name()!='label'and name()!='title' ]"/>
 	</xsl:template>
 	<xsl:template match="p">
-	
 		<p>
 			<xsl:apply-templates select="text()|*[name()!='fn']"/>
-
 		</p>
-		
 	</xsl:template>
 	<xsl:template match="ext-link">
 		<a href="{@xlink:href}">
 			<xsl:value-of select="."/>
 		</a>
 	</xsl:template>
-	<xsl:template match="xref">
-		<sup id="{@rid}" class="supnote">
+	<!--Attention aux références internes du doc: faire des exclusions-->
+	<xsl:template match="xref[@ref-type='fn']">
+		<!--<xsl:template match="p/fn">-->
+		<!--<sup id="{@rid}" class="supnote">-->
+		<!--<sup id="fntext-[name()='label']" class="supnote">-->
+		<!--<sup class="supnote" id="fntext-[text()='fn/label']">-->
+		<sup id="fntext-{@rid}" class="supnote">
 			<a href="#{@rid}">
 				<xsl:value-of select="."/>
 			</a>
 		</sup>
 	</xsl:template>
-	<xsl:template match="fn">
-		<!--<li id="{@id}" class="note-list">-->
-		<li id="fn-[name()!='label']" class="note-list">
+	<!--<xsl:template match="fn[@id]|except //table-wrap-foot/fn">-->
+	<xsl:template match="fn[@id]">
+		<li id="{@id}" class="note-list">
 			<span class="reference-text">
 				<xsl:value-of select="label"/>
 				<span>. </span>
 				<xsl:value-of select="p"/>
 				<span>&#160;</span>
-				<a href="#{@id}" class="small">
+				<a href="#fntext-{@id}" class="small">
 					<i class="icon-back-to-top"/>Back to text</a>
 			</span>
 		</li>
 	</xsl:template>
+	<!--<xsl:template match="xref[@ref-type='fn']">
+		<li id="{@rid}" class="note-list">
+			<span class="reference-text">
+				<xsl:value-of select="label"/>
+				<span>. </span>
+				<xsl:value-of select="p"/>
+				<span>&#160;</span>
+				<a href="#fntext-{@rid}" class="small">
+					<i class="icon-back-to-top"/>Back to text</a>
+			</span>
+		</li>
+	</xsl:template>-->
 	<xsl:template match="email">
 		<a href="mailto:{@xlink:href}">
 			<xsl:value-of select="."/>
@@ -297,13 +292,27 @@
 			</h3>
 		</xsl:if>
 		<xsl:apply-templates select="table"/>
+		<div class="bckg">
+			<xsl:apply-templates select="table-wrap-foot"/>
+		</div>
+	</xsl:template>
+	<!--test insertion tfoot-->
+	<xsl:template name="table-wrap-foot">
+		<p>
+			<xsl:value-of select="fn/p"/>
+		</p>
+		<p>
+			<xsl:value-of select="attrib"/>
+		</p>
 	</xsl:template>
 	<xsl:template match="table">
 		<table id="{../@id}">
-			<xsl:apply-templates select="thead|tbody|tfoot|tr"/>
+			<xsl:apply-templates select="thead|tbody|tr"/>
+			<!--thead|tbody|tfoot|tr-->
 		</table>
 	</xsl:template>
-	<xsl:template match="thead|tbody|tfoot|tr|td|th">
+	<xsl:template match="thead|tbody|tr|td|th">
+		<!--thead|tbody|tfoot|tr|td|th-->
 		<xsl:element name="{name()}">
 			<xsl:for-each select="@*">
 				<xsl:attribute name="{name()}">
@@ -313,6 +322,16 @@
 			<xsl:apply-templates select="text()|*"/>
 		</xsl:element>
 	</xsl:template>
+	<!--test solutiom table footer-->
+	<!--<xsl:template match="table-wrap-foot">
+		<p>
+			<xsl:value-of select="fn/p"/>
+		</p>
+		<p>
+			<xsl:value-of select="attrib"/>
+		</p>
+		<xsl:apply-templates select="table"/>
+	</xsl:template>-->
 	<!--	<xsl:template match="table-wrap">
 		<h3>
 			<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>
@@ -352,29 +371,31 @@
 		<xsl:variable name="src">
 			<xsl:call-template name="imgPathCreator"/>
 		</xsl:variable>
-		<img alt="{../label}" src="{$src}"/>
+		<!--<img alt="{../label}" src="{$src}"/>-->
+		<table class="tab-img">
+			<tbody>
+				<tr>
+					<td>
+						<img alt="{../label}" src="{$src}"/>
+					</td>	
+				</tr>
+			</tbody>
+		</table>
+		
 	</xsl:template>
 	<xsl:template name="notes">
-		<xsl:if test="fn">
+		<!--<xsl:if test="fn">-->
 		<h3>Notes</h3>
 		<ul class="notes">
 			<xsl:apply-templates select="//fn"/>
 		</ul>
-		</xsl:if>
-	</xsl:template>
-	
-	<xsl:template name="displayAnex">
-		<!--<xsl:if test="bookMetaSubject='Secretariat Report'">-->
-		<xsl:call-template name="tocChart"></xsl:call-template>
-		<xsl:call-template name="tocTable"></xsl:call-template>
-		<xsl:call-template name="tocTableAppendix"></xsl:call-template>
 		<!--</xsl:if>-->
 	</xsl:template>
-	
-	
-	
-	
-	
+	<xsl:template name="displayAnex">
+		<xsl:call-template name="tocChart"/>
+		<xsl:call-template name="tocTable"/>
+		<xsl:call-template name="tocTableAppendix"/>
+	</xsl:template>
 	<xsl:template match="break">
 		<br/>
 	</xsl:template>
