@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<!--test condition pour TPRS-->
 	<xsl:param name="tocTPRS">
 		<xsl:if test="/book/book-meta/book-title-group/book-title[text()='TRADE POLICY REVIEW'] and /book/book-meta/book-title-group/subtitle[text()='REPORT BY THE SECRETARIAT']"/>
 	</xsl:param>
@@ -11,8 +12,8 @@
 						<dt>
 							<xsl:if test="//sec/sec[@id]">
 								<a href="#{@id}">
-									<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
-								</a>
+						<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
+					</a>
 							</xsl:if>
 							<xsl:if test="//sec [not(@id)]/title">
 								<a href="#{title}">
@@ -24,8 +25,8 @@
 					<xsl:otherwise>
 						<dd>
 							<a href="#{@id}">
-								<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
-							</a>
+						<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
+					</a>
 						</dd>
 					</xsl:otherwise>
 				</xsl:choose>
@@ -50,8 +51,9 @@
 					<xsl:otherwise>
 						<dd>
 							<a href="#{@id}">
-								<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
-							</a>
+						
+						<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
+					</a>
 						</dd>
 					</xsl:otherwise>
 				</xsl:choose>
@@ -115,15 +117,19 @@
 		</xsl:choose>
 	</xsl:template>
 	<xsl:template name="tocTable">
+		<xsl:if test="/book/book-body//sec[@id]//table-wrap">
 		<h2 style="color:black;">Table</h2>
 		<dl>
-			<xsl:apply-templates mode="toc" select="/book/book-body/book-part[2]/body/sec[@id]//table-wrap"/>
+			<xsl:apply-templates mode="toc" select="/book/book-body//sec[@id]//table-wrap"/>
 		</dl>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template name="tocTableAppendix">
+		<xsl:if test="/book/book-body/book-part[2]/body/sec[last()]//table-wrap[@id='t03.01']"><!--voir attribut ou path de table appendix-->
 		<h2 style="color:black;">Appendix Table</h2>
 		<dl>
-			<xsl:apply-templates mode="toc" select="/book/book-body/book-part[2]/body/sec[last()]//table-wrap"/>
+			<xsl:apply-templates mode="toc" select="/book/book-body/book-part[2]/body/sec[last()]//table-wrap[@id='t03.01']"/>
 		</dl>
+		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
