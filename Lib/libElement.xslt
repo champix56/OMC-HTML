@@ -218,20 +218,18 @@
 			<h3>				<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>			</h3>
 		</xsl:if>
 		<xsl:apply-templates select="table"/>
-		<xsl:if test="table-wrap-foot">
-			<div class="bckg">
-				<xsl:apply-templates select="table-wrap-foot"/>
-			</div>
-		</xsl:if>
+		<xsl:apply-templates select="table-wrap-foot"/>
 	</xsl:template>
 	<!--test insertion tfoot-->
 	<xsl:template name="table-wrap-foot">
-		<p>
-			<xsl:value-of select="fn/p"/>
-		</p>
-		<p>
-			<xsl:value-of select="attrib"/>
-		</p>
+		<div class="bckg">
+			<p>
+				<xsl:value-of select="fn/p"/>
+			</p>
+			<p>
+				<xsl:value-of select="attrib"/>
+			</p>
+		</div>
 	</xsl:template>
 	<xsl:template match="table">
 		<table id="{../@id}">
