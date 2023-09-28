@@ -5,12 +5,7 @@
 	<!--Modification manuelle du nom de repertoire dans troncature-->
 	<xsl:param name="mediaBase">S418 - </xsl:param>
 	<!--Modification automatique du nom de repertoire dans troncature-->
-	<!--<xsl:param name="mediaBase">
-		<xsl:value-of select="//book-id[@book-id-type='publisher-id']"/>
-	</xsl:param>
-	<xsl:param name="serialNumber">
-		<xsl:value-of select="/book/book-meta/book-id[@book-id-type='publisher-id']/text()"/>
-	</xsl:param>-->
+	<!--<xsl:param name="mediaBase">		<xsl:value-of select="//book-id[@book-id-type='publisher-id']"/>	</xsl:param>	<xsl:param name="serialNumber">		<xsl:value-of select="/book/book-meta/book-id[@book-id-type='publisher-id']/text()"/>	</xsl:param>-->
 	<xsl:param name="bookMetaSubject">
 		<xsl:for-each select="/book/book-meta/subj-group[@subj-group-type='report-type']">
 			<xsl:value-of select="subject"/>
@@ -64,8 +59,7 @@
 				</div>
 				<div class="header-bottom-right">
 					<xsl:for-each select="/book/book-meta//custom-meta[contains(@id,'OriginalLanguage')]">
-						<div class="header-language">Original: <xsl:value-of select="meta-value"/>
-						</div>
+						<div class="header-language">Original: <xsl:value-of select="meta-value"/>						</div>
 					</xsl:for-each>
 				</div>
 			</div>
@@ -75,9 +69,7 @@
 		<h1 class="center">
 			<xsl:value-of select="/book/book-meta/book-title-group/book-title"/>
 		</h1>
-		<!--<h2 class="center">
-			<xsl:value-of select="/book/book-meta/book-title-group/subtitle"/>
-		</h2>-->
+		<!--<h2 class="center">			<xsl:value-of select="/book/book-meta/book-title-group/subtitle"/>		</h2>-->
 		<xsl:for-each select="/book/book-meta/book-title-group/subtitle">
 			<h2 class="center">
 				<xsl:value-of select="."/>
@@ -109,115 +101,63 @@
 			</div>
 		</xsl:if>
 	</xsl:template>
-	<xsl:template name="cssContent">
-	body {	padding:7em;
-			text-align: justify;
-			<!--font-weight:900;-->
-			font-size:14pt;
-			font-family: Verdana;}<!--ajustement mise en page-->
-			
-	h1,h2,h3,h4,h5,h6 {color:#006283;}
-	h1 {font-size:27px !important;
-		font-family: museo sans 700;}
-	h2 {font-size:20px !important;
-		font-family: museo sans 700;}
-	h3 {font-size:17px !important;
-		font-family: museo sans 700;}
-	h4 {font-size:14PX !important;
-		font-family: museo sans 300;}
-	h5 {font-size:0.9em !important;
-		font-family: museo sans 300;}
-	h6 {font-size:0;8em !important;
-		font-family: museo sans 300;}
-	<!--h1 {font-size:2,07em !important;
-		font-family: museo sans 700;}
-	h2 {font-size:1,42em !important;
-		font-family: museo sans 700;}
-	h3 {font-size:1,21em !important;
-		font-family: museo sans 700;}
-	h4 {font-size:1em !important;
-		font-family: museo sans 300;}
-	h5 {font-size:0.9em !important;
-		font-family: museo sans 300;}
-	h6 {font-size:0;8em !important;
-		font-family: museo sans 300;}-->	
-	.alpha-lower {list-style-type:lower-alpha;}
-	.alpha-upper {list-style-type:upper-alpha;}
-	.roman-lower {list-style-type:lower-roman;}
-	.roman-upper {list-style-type:upper-roman;}
-	thead tr td {color: white;}
-	table {	width: 90%;
-			margin-left:5%;
-			border:1px solid black;
-			border-spacing:0;
-			border-collapse:collapse;}
-	table td {padding:10px;}
-	<!--tbody tr td:nth-child(even) {background-color: #91A9A7;}-->
-	td {border-left:1px solid black;}
-	.header-top {	display:flex;
-					width:100%;
-					border-bottom:1px solid black;}
-	.header-bottom {	display:flex;
-					width:100%;}			
-	.header-logo, .header-bottom-left {flex-grow:1;}
-	.header-logo img {	max-width:calc(100vw - 150px);
-						min-width:70px;
-						margin-top: -50px;
-						margin-left: -25px;
-						margin-bottom: 5px;}
-	.publisher-id {color:red;}
-	.header-restricted {	color:red;
-						font-weight:700;
-						text-transform:uppercase;}
-	.header-symbol {font-weight:700;}
-	.header-date {margin-top:30px;}
-	.uppercase {text-transform:uppercase;}
-	.center {text-align:center;}
-	a[href="#top"], .backToTop {float: right;
-    margin-top: 0 !important;
-    font-size: 10.5px !important;
-    font-family: "Museo Sans 300";
-    font-weight: normal;
-    text-decoration: none !important;
-    color: #006283 !important;}
-    .supnote, .supnote a {
-		top: -0.8em;
-		color: #00aeff;
-		font-size: 60%;
-		line-height: 0;
-		position: relative;
-		vertical-align: baseline;
-	}
-	.notes {list-style-type: circle;
-			padding-left: 20px;}
-	.notes :before {<!--font-family: 'WTO';
-					content: '\0041';
-					padding: 0;-->
-					color: #00AEFF;
-					font-size: 60%;
-					<!--margin-right: 10px;-->
-					margin-left: 20px;}
-	.bckg {background-color:red !important;
-			margin-left: 5%;
-			width: 90%;}
-	.disp-none{display:none;}
-	.tab-img{ width: 100%;
-			  border: 0px;
-			  margin: -15px;}
-						
-	</xsl:template>
+	<xsl:template name="cssContent">	
+		body {	padding:7em; text-align: justify; <!--font-weight:900;-->	 font-size:14pt; font-family: Verdana;}
+		<!--ajustement mise en page-->				
+		h1,h2,h3,h4,h5,h6 {color:#006283;}	
+		h1 {font-size:27px !important;		font-family: museo sans 700;}	
+		h2 {font-size:20px !important;		font-family: museo sans 700;}	
+		h3 {font-size:17px !important;		font-family: museo sans 700;}	
+		h4 {font-size:14PX !important;		font-family: museo sans 300;}	
+		h5 {font-size:0.9em !important;		font-family: museo sans 300;}	
+		h6 {font-size:0;8em !important;		font-family: museo sans 300;}	
+		<!--h1 {font-size:2,07em !important;		font-family: museo sans 700;}	
+		h2 {font-size:1,42em !important;		font-family: museo sans 700;}	
+		h3 {font-size:1,21em !important;		font-family: museo sans 700;}	
+		h4 {font-size:1em !important;		font-family: museo sans 300;}	
+		h5 {font-size:0.9em !important;		font-family: museo sans 300;}	
+		h6 {font-size:0;8em !important;		font-family: museo sans 300;}-->		
+		.alpha-lower {list-style-type:lower-alpha;}	
+		.alpha-upper {list-style-type:upper-alpha;}	
+		.roman-lower {list-style-type:lower-roman;}	
+		.roman-upper {list-style-type:upper-roman;}	
+		thead tr td {color: white;}	
+		table {width: 90%; margin-left:5%; border:1px solid black; border-spacing:0;	border-collapse:collapse;}	
+		table td {padding:10px;}	
+		<!--tbody tr td:nth-child(even) {background-color: #91A9A7;}-->	
+		td {border-left:1px solid black;}	
+		.header-top {display:flex; width:100%; border-bottom:1px solid black;}	
+		.header-bottom {	display:flex; width:100%;}			
+		.header-logo, .header-bottom-left {flex-grow:1;}	
+		.header-logo img {	max-width:calc(100vw - 150px); min-width:70px; margin-top: -50px;	 margin-left: -25px;	 margin-bottom: 5px;}	
+		.publisher-id {color:red;}
+		.header-restricted {	color:red; font-weight:700; text-transform:uppercase;} 
+		.header-symbol {font-weight:700;}
+		.header-date {margin-top:30px;}
+		.uppercase {text-transform:uppercase;}
+												.center {text-align:center;}	a[href="#top"], 
+		.backToTop {float: right; margin-top: 0 !important; font-size: 10.5px !important; font-family: "Museo Sans 300"; font-weight: normal; text-decoration: none !important; color: #006283 !important;}    
+		.supnote, .supnote a {top: -0.8em; color: #00aeff; font-size: 60%; line-height: 0; position: relative;	 vertical-align: baseline;}	
+		.notes {list-style-type: circle; padding-left: 20px;}
+		.notes :before {
+		<!--font-family: 'WTO'; content: '\0041'; padding: 0;-->	
+		color: #00AEFF;font-size: 60%;
+		<!--margin-right: 10px;--> 
+		margin-left: 20px;}
+		.bckg {background-color:red !important; margin-left: 5%; width: 90%;}	
+		.disp-none{display:none;}
+		.tab-img{ width: 100%; border: 0px; margin: -15px;}
+		</xsl:template>
+	
+	
+	
+	
+	
 	<xsl:template name="sec-title">
 		<xsl:variable name="seclevel" select="count(ancestor-or-self::sec)"/>
-		<xsl:element name="h{$seclevel+1}">
-			
-			<xsl:attribute name="id">
+		<xsl:element name="h{$seclevel+1}">						<xsl:attribute name="id">
 				<xsl:value-of select="@id"/>
-			</xsl:attribute>
-			<xsl:value-of select="label"/>. 
-		<xsl:value-of select="title"/>
-			<a href="#top" class="backToTop"> back to top</a>
-			
-		</xsl:element>
+			</xsl:attribute>			<xsl:value-of select="label"/>. 		<xsl:value-of select="title"/>			<a href="#top" class="backToTop"> back to top</a>					</xsl:element>
 	</xsl:template>
 	<xsl:template match="sec">
 		<xsl:call-template name="sec-title"/>
@@ -253,23 +193,11 @@
 				<span>. </span>
 				<xsl:value-of select="p"/>
 				<span>&#160;</span>
-				<a href="#fntext-{@id}" class="small">
-					<i class="icon-back-to-top"/>Back to text</a>
+				<a href="#fntext-{@id}" class="small">					<i class="icon-back-to-top"/>Back to text</a>
 			</span>
 		</li>
 	</xsl:template>
-	<!--<xsl:template match="xref[@ref-type='fn']">
-		<li id="{@rid}" class="note-list">
-			<span class="reference-text">
-				<xsl:value-of select="label"/>
-				<span>. </span>
-				<xsl:value-of select="p"/>
-				<span>&#160;</span>
-				<a href="#fntext-{@rid}" class="small">
-					<i class="icon-back-to-top"/>Back to text</a>
-			</span>
-		</li>
-	</xsl:template>-->
+	<!--<xsl:template match="xref[@ref-type='fn']">		<li id="{@rid}" class="note-list">			<span class="reference-text">				<xsl:value-of select="label"/>				<span>. </span>				<xsl:value-of select="p"/>				<span>&#160;</span>				<a href="#fntext-{@rid}" class="small">					<i class="icon-back-to-top"/>Back to text</a>			</span>		</li>	</xsl:template>-->
 	<xsl:template match="email">
 		<a href="mailto:{@xlink:href}">
 			<xsl:value-of select="."/>
@@ -287,9 +215,7 @@
 	</xsl:template>
 	<xsl:template match="table-wrap">
 		<xsl:if test="label|caption/title">
-			<h3>
-				<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>
-			</h3>
+			<h3>				<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>			</h3>
 		</xsl:if>
 		<xsl:apply-templates select="table"/>
 		<div class="bckg">
@@ -323,26 +249,9 @@
 		</xsl:element>
 	</xsl:template>
 	<!--test solutiom table footer-->
-	<!--<xsl:template match="table-wrap-foot">
-		<p>
-			<xsl:value-of select="fn/p"/>
-		</p>
-		<p>
-			<xsl:value-of select="attrib"/>
-		</p>
-		<xsl:apply-templates select="table"/>
-	</xsl:template>-->
-	<!--	<xsl:template match="table-wrap">
-		<h3>
-			<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>
-		</h3>
-		<xsl:apply-templates select="table"/>
-	</xsl:template>-->
-	<!--<xsl:template match="table">
-		<table id="{../@id}">
-			<xsl:copy-of select="thead|tbody|tfoot|tr"/>
-		</table>
-	</xsl:template>-->
+	<!--<xsl:template match="table-wrap-foot">		<p>			<xsl:value-of select="fn/p"/>		</p>		<p>			<xsl:value-of select="attrib"/>		</p>		<xsl:apply-templates select="table"/>	</xsl:template>-->
+	<!--	<xsl:template match="table-wrap">		<h3>			<xsl:value-of select="label"/>: <xsl:value-of select="caption/title"/>		</h3>		<xsl:apply-templates select="table"/>	</xsl:template>-->
+	<!--<xsl:template match="table">		<table id="{../@id}">			<xsl:copy-of select="thead|tbody|tfoot|tr"/>		</table>	</xsl:template>-->
 	<xsl:template name="annex">
 		<xsl:for-each select="/book/book-back/book-app-group/book-app">
 			<p>
@@ -356,9 +265,7 @@
 				</p>
 			</xsl:for-each>
 		</xsl:for-each>
-		<!--<ol class="{@list-type}">
-			<xsl:apply-templates select=""/>
-		</ol>-->
+		<!--<ol class="{@list-type}">			<xsl:apply-templates select=""/>		</ol>-->
 	</xsl:template>
 	<xsl:template match="fig">
 		<h3 id="{@id}">
@@ -377,11 +284,10 @@
 				<tr>
 					<td>
 						<img alt="{../label}" src="{$src}"/>
-					</td>	
+					</td>
 				</tr>
 			</tbody>
 		</table>
-		
 	</xsl:template>
 	<xsl:template name="notes">
 		<!--<xsl:if test="fn">-->
