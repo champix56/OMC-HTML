@@ -290,12 +290,12 @@
 		</table>
 	</xsl:template>
 	<xsl:template name="notes">
-		<!--<xsl:if test="fn">-->
-		<h3>Notes</h3>
-		<ul class="notes">
-			<xsl:apply-templates select="//fn[not(ancestor::table-wrap) and not(ancestor::table)]"/>
-		</ul>
-		<!--</xsl:if>-->
+		<xsl:if test="//fn[not(ancestor::table-wrap) and not(ancestor::table)]">
+			<h3>Notes</h3>
+			<ul class="notes">
+				<xsl:apply-templates select="//fn[not(ancestor::table-wrap) and not(ancestor::table)]"/>
+			</ul>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template name="displayAnex">
 		<xsl:call-template name="tocChart"/>
