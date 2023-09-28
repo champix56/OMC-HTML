@@ -293,7 +293,7 @@
 		<!--<xsl:if test="fn">-->
 		<h3>Notes</h3>
 		<ul class="notes">
-			<xsl:apply-templates select="//fn"/>
+			<xsl:apply-templates select="//fn[not(ancestor::table-wrap) and not(ancestor::table)]"/>
 		</ul>
 		<!--</xsl:if>-->
 	</xsl:template>
