@@ -11,8 +11,8 @@
 						<dt>
 							<xsl:if test="//sec/sec[@id]">
 								<a href="#{@id}">
-						<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
-					</a>
+									<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
+								</a>
 							</xsl:if>
 							<xsl:if test="//sec [not(@id)]/title">
 								<a href="#{title}">
@@ -24,8 +24,8 @@
 					<xsl:otherwise>
 						<dd>
 							<a href="#{@id}">
-						<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
-					</a>
+								<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
+							</a>
 						</dd>
 					</xsl:otherwise>
 				</xsl:choose>
@@ -50,9 +50,8 @@
 					<xsl:otherwise>
 						<dd>
 							<a href="#{@id}">
-						
-						<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
-					</a>
+								<xsl:value-of select="label"/>. <xsl:value-of select="title"/>
+							</a>
 						</dd>
 					</xsl:otherwise>
 				</xsl:choose>
@@ -90,10 +89,12 @@
 		</xsl:choose>-->
 	</xsl:template>
 	<xsl:template name="tocChart">
-		<h2 style="color:black;">Chart</h2>
-		<dl>
-			<xsl:apply-templates mode="toc" select="//fig[@fig-type='chart']"/>
-		</dl>
+		<xsl:if test="//fig[@fig-type='chart']">
+			<h2 style="color:black;">Chart</h2>
+			<dl>
+				<xsl:apply-templates mode="toc" select="//fig[@fig-type='chart']"/>
+			</dl>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template match="table-wrap" mode="toc">
 		<xsl:choose>
